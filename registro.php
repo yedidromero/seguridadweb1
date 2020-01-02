@@ -1,13 +1,13 @@
 <?php
 if(isset($_POST["user"]) && isset($_POST["pass"]))
 {
-    // check if user exist.
+    
     $file=fopen("data.txt","r");
     $finduser = false;
     while(!feof($file))
     {
         $line = fgets($file);
-        $array = explode(";",$line);
+        $array = explode("|",$line);
         if(trim($array[0]) == $_POST['user'])
         {
             $finduser=true;
@@ -16,11 +16,11 @@ if(isset($_POST["user"]) && isset($_POST["pass"]))
     }
     fclose($file);
 
-    // register user or pop up message
+    
     if( $finduser )
     {
         echo $_POST["user"];
-        echo ' existed!\r\n';
+        echo 'Este usuario ha sido registrado previamente... \r\n';
         include 'login.php';
     }
     else
@@ -29,7 +29,7 @@ if(isset($_POST["user"]) && isset($_POST["pass"]))
         fputs($file,$_POST["user"].";".$_POST["pass"]."\r\n");
         fclose($file);
         echo $_POST["user"];
-        echo " registered successfully!";
+        echo "Usuario registrado correctamente... ";
     }
 }
 else

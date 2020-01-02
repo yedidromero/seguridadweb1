@@ -15,12 +15,9 @@ if (($user==$partes[0]) && ($pass==$partes[1]))
 header('location:inicio.php');
 }
 else {
-//	echo 'error';
- 
- //header('location:login.php');
- /*echo '<script type="text/javascript"> window.open("login.php","_blank");</script>';  */
-    
-        echo "invalid UserName or Password";
+//	echo 'error';   
+        echo "Nombre de usuario o contraseña inválidos";
+		echo "Vuelve a intentarlo";
 		include 'login.php';
 }
 
