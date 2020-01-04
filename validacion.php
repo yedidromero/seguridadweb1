@@ -47,7 +47,7 @@ $validador = 0;
 				$validador =0;
 				}
 			}	
-			if($validador =0){
+			if($validador == 0){
 				echo "Nombre de usuario o contraseña inválidos";
 		echo "Vuelve a intentarlo";
 		include 'login.php';
