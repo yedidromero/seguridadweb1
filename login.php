@@ -2,11 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tarea de Yedid</title>
+<title>Yedid Romero Aguirre | Desarrollo web avanzado</title>
+<style type="text/css">
+h1,h2,h3,h4,h5,h6 {
+	font-family: "MS Serif", "New York", serif;
+}
+body,td,th {
+	font-family: "Lucida Console", Monaco, monospace;
+}
+</style>
 </head>
 
-<body>
-<p>Ingresa con tu usuario y contraseña:</p>
+<body bgcolor="#006666" text="#FFFFFF">
+<h3>Ingresa con tu usuario y contraseña:</h3>
 <form id="form1" name="form1" method="post" action="validacion.php">
   <table width="200" border="1">
     <tr>
@@ -17,7 +25,7 @@
     <tr>
       <td>CONTRASEÑA</td>
       <td><label for="pass"></label>
-      <input type="text" name="pass" id="pass" /></td>
+      <input type="password" name="pass" id="pass" /></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -25,7 +33,7 @@
     </tr>
   </table>
 </form>
-<p>Regístrate, coloca un usuario y contraseña:</p>
+<h3>Regístrate, coloca un usuario y contraseña:</h3>
 <form action="registro.php" method="post">
   <table width="409" border="1">
     <tr>
@@ -36,7 +44,7 @@
     <tr>
       <td>CONTRASEÑA</td>
       <td><label for="pass"></label>
-      <input type="text" name="pass" id="pass" /></td>
+      <input type="password" name="pass" id="pass" /></td>
     </tr>
     <tr>
       <td>&nbsp;</td>

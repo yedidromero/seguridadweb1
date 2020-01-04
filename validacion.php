@@ -1,3 +1,4 @@
+<title>Yedid Romero Aguirre | Desarrollo web avanzado</title>
 <script>
 function index(){
 	window.location="inicio.php";}

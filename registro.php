@@ -1,29 +1,19 @@
+<title>Yedid Romero Aguirre | Desarrollo web avanzado</title>
+	<script>
+    function registrado(){
+		alert("Se ha registrado correctamente el usuario, ahora inicia sesión");
+		window.location="login.php";}
+		</script>
 <?php
 $user    = $_POST['user'];
 $pass    = SHA1($_POST['pass']);
 
 function yaRegistro(){
-        echo $user;
-        echo 'Este usuario ha sido registrado previamente...'.'\r\n';
+		echo $user;
+        echo 'Este usuario ha sido registrado previamente...';
         include 'login.php';
 }
 
-function noRegistro(){
-           $file = fopen("data.txt", "a+");
-        $leer = fread($file, filesize("data.txt"));
-        $verificar = explode(chr(13).chr(10), $leer);
-        for ($i=0; $i< count($verificar); $i++){
-            echo $verificar[$i]."<br>";
-            }
-        
-        fputs($file,$user."|".$pass.chr(13).chr(10));
-        fclose($file);
-        echo $user;
-        echo "\r\n";
-        echo "\r\n Usuario registrado correctamente... ";
-        
-    
-}
 if(isset($user) && isset($pass))
 {
     
@@ -44,13 +34,26 @@ if(isset($user) && isset($pass))
     
     if( $finduser )
     {
+		yaRegistro();
 
-        yaRegistro();
     }
     else
     {
-        noRegistro();
-    
+		$file = fopen("data.txt", "a+");
+		$leer = fread($file, filesize("data.txt"));
+		$verificar = explode(chr(13).chr(10), $leer);
+		for ($i=0; $i< count($verificar); $i++){
+			
+			}
+		
+        fputs($file,$user."|".$pass.chr(13).chr(10));
+        fclose($file);
+        echo $user;
+		echo "\r\n";
+        echo "\r\n Usuario registrado correctamente... ";
+		echo "<script>registrado()</script>";
+		
+	
  }
 }
 else
