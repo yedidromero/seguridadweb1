@@ -1,11 +1,40 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Documento sin título</title>
-</head>
+<script>
+function error(){
+	alert("no estas logueado");
+	window.location = "login.php";
+	}
+	</script>
 
-<body>
-BIENVENIDO
-</body>
+<?php
+session_start();
+if (isset($_SESSION["usuario"])){
+	echo "Bienvenido ".$_SESSION["usuario"];}
+	else{
+		echo "<script>error()</script>";
+	}
+	?>
+<!doctype html>
+<html>
+<head>
+<title>This is the title of the webpage!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body {
+	background-color: #036;
+}
+body,td,th {
+	color: #FFF;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+</style>
+</head>
+  <body link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+    <h1>PÁGINA DE INICIO</h1>
+    <h1>Trabajo: Desarrollo web avanzado</h1>
+    <h2>ALUMNO: YEDID ROMERO AGUIRRE</h2>
+    <p>&nbsp;</p>
+    <h3>MATERIA: COMPUTACIÓN EN EL SERVIDOR WEB</h3>
+  <p>&nbsp;</p>
+  <h4><a href="login.php">REGRESAR AL LOGIN</a></h4>
+  </body>
 </html>
