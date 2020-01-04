@@ -1,5 +1,8 @@
 <?php
-if(isset($_POST["user"]) && isset($_POST["pass"]))
+$user    = $_POST['user'];
+$pass    = SHA1($_POST['pass']);
+
+if(isset($user) && isset($pass))
 {
     
     $file=fopen("data.txt","r");
@@ -8,7 +11,7 @@ if(isset($_POST["user"]) && isset($_POST["pass"]))
     {
         $line = fgets($file);
         $array = explode("|",$line);
-        if(trim($array[0]) == $_POST['user'])
+        if(trim($array[0]) == $user)
         {
             $finduser=true;
             break;
@@ -19,17 +22,26 @@ if(isset($_POST["user"]) && isset($_POST["pass"]))
     
     if( $finduser )
     {
-        echo $_POST["user"];
-        echo 'Este usuario ha sido registrado previamente... \r\n';
+        echo $user;
+        echo 'Este usuario ha sido registrado previamente...'.'\r\n';
         include 'login.php';
     }
     else
     {
-        $file = fopen("data.txt", "a");
-        fputs($file,$_POST["user"].";".$_POST["pass"]."\r\n");
+	
+        $file = fopen("data.txt", "a+");
+		$leer = fread($file, filesize("data.txt"));
+		$verificar = explode(chr(13).chr(10), $leer);
+		for ($i=0; $i< count($verificar); $i++){
+			echo $verificar[$i]."<br>";
+			}
+		
+        fputs($file,$user."|".$pass.chr(13).chr(10));
         fclose($file);
-        echo $_POST["user"];
-        echo "Usuario registrado correctamente... ";
+        echo $user;
+		echo "\r\n";
+        echo "\r\n Usuario registrado correctamente... ";
+		
     }
 }
 else
