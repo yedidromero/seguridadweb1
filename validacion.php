@@ -11,7 +11,7 @@ function index(){
 <?php  
 
 session_start();
-$user    = $_POST['user'];
+$user    = SHA1($_POST['user']);
 $pass    = SHA1($_POST['pass']);
 $abrir=fopen("data.txt","r") or die ("Error - No fue posible abrir el archivo");
 $validador = 0;

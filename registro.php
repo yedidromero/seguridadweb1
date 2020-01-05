@@ -5,7 +5,7 @@
 		window.location="login.php";}
 		</script>
 <?php
-$user    = $_POST['user'];
+$user    = SHA1($_POST['user']);
 $pass    = SHA1($_POST['pass']);
 
 function yaRegistro(){
